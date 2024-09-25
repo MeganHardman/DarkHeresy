@@ -1,7 +1,7 @@
-Roll,Location
-"01-10",Head
-"11-20",Right Arm
-"21-30",Left Arm
-"31-70",Body
-"71-85",Right Leg
-"86-00",Left Leg
+Number,Roll,Location
+1,01-10,Head
+2,11-20,Right Arm
+3,21-30,Left Arm
+4,31-70,Body
+5,71-85,Right Leg
+6,86-00,Left Leg
