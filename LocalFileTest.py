@@ -22,7 +22,7 @@ def load_df():
 def load_hl():
     hl = pd.read_csv("./hitlocations.csv")
     roll_options = hl.Roll.unique()
-    location_options = hl.Locations.unique()
+    location_options = hl.Location.unique()
 
     return hl, roll_options, location_options
 
@@ -31,7 +31,7 @@ def check_rows(column, options):
 
 st.title("Dark Heresy Critical Damage App")
 
-hl, roll_options, locations_options = load_hl()
+hl, roll_options, location_options = load_hl()
 hit = hl
 
 hit_query = st.number_input("Enter the hit roll")
@@ -55,6 +55,8 @@ if hit_query :
     elif hit_query < 101:
         hit = check_rows("Roll", "86-00")
         limb = "Leg"
+
+st.write(hit)
 
 df, type_options, limb_options, damage_options, effect_options = load_df()
 res = df
