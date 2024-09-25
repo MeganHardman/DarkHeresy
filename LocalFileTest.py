@@ -19,10 +19,42 @@ def load_df():
 
     return df, type_options, limb_options, damage_options, effect_options#, embark_options, min_fare, max_fare, min_age, max_age
 
+def load_hl():
+    hl = pd.read_csv(./hitlocations.csv")
+    roll_options = hl.Roll.unique()
+    location_options = hl.Locations.unique()
+
+    return hl, roll_options, location_options
+
 def check_rows(column, options):
     return res.loc[res[column].isin(options)]
 
 st.title("Dark Heresy Critical Damage App")
+
+hl, roll_options, locations_options = load_hl()
+hit = hl
+
+hit_query = st.number_input("Enter the hit roll")
+
+if hit_query :
+    if hit_query < 11:
+        hit = check_rows("Roll", "01-10")
+        limb = "Head"
+    else if hit_query < 21:
+        hit = check_rows("Roll", "11-20")
+        limb = "Arm"
+    else if hit_query < 31:
+        hit = check_rows("Roll", "21-30")
+        limb = "Arm"
+    else if hit_query < 70:
+        hit = check_rows("Roll", "31-70")
+        limb = "Body"
+    else if hit_query < 85:
+        hit = check_rows("Roll", "71-85")
+        limb = "Leg"
+    else if hit_query < 101:
+        hit = check_rows("Roll", "86-00")
+        limb = "Leg"
 
 df, type_options, limb_options, damage_options, effect_options = load_df()
 res = df
@@ -31,7 +63,7 @@ effect_query = st.text_input("String match for Effect")
 
 cols = st.columns(3)
 type = cols[0].multiselect("Type", type_options)
-limb = cols[0].multiselect("Limb", limb_options)
+#limb = cols[0].multiselect("Limb", limb_options)
 damage = cols[1].multiselect("Damage", damage_options)
 #effect = cols[2].multiselect("Effect", effect_options)
 #embark = cols[3].multiselect("Embarked", embark_options)
@@ -58,7 +90,7 @@ if limb:
 #    res = res.loc[(res.Fare > min_fare_range) & (res.Age < max_fare_range)]
 #if range_cols[2].checkbox("Use Age Range"):
 #    res = res.loc[(res.Age > min_age_range) & (res.Age < max_age_range)]
-removal_columns = st.multiselect("Select Columns to Remove", df.columns.tolist())
-for column in removal_columns:
-    res = res.drop(column, axis=1)
+#removal_columns = st.multiselect("Select Columns to Remove", df.columns.tolist())
+#for column in removal_columns:
+#    res = res.drop(column, axis=1)
 st.write(res)
