@@ -56,7 +56,7 @@ if hit_query :
     elif hit_query < 101:
         hit = check_rows(hit,"Number", 6)
         limb = "Leg"
-
+hit = hit.drop("Number", axis=1)
 st.write(hit)
 
 df, type_options, limb_options, damage_options, effect_options = load_df()
