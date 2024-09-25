@@ -20,7 +20,7 @@ def load_df():
     return df, type_options, limb_options, damage_options, effect_options#, embark_options, min_fare, max_fare, min_age, max_age
 
 def load_hl():
-    hl = pd.read_csv(./hitlocations.csv")
+    hl = pd.read_csv("./hitlocations.csv")
     roll_options = hl.Roll.unique()
     location_options = hl.Locations.unique()
 
