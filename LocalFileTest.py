@@ -40,19 +40,19 @@ if hit_query :
     if hit_query < 11:
         hit = check_rows("Roll", "01-10")
         limb = "Head"
-    else if hit_query < 21:
+    elif hit_query < 21:
         hit = check_rows("Roll", "11-20")
         limb = "Arm"
-    else if hit_query < 31:
+    elif hit_query < 31:
         hit = check_rows("Roll", "21-30")
         limb = "Arm"
-    else if hit_query < 70:
+    elif hit_query < 70:
         hit = check_rows("Roll", "31-70")
         limb = "Body"
-    else if hit_query < 85:
+    elif hit_query < 85:
         hit = check_rows("Roll", "71-85")
         limb = "Leg"
-    else if hit_query < 101:
+    elif hit_query < 101:
         hit = check_rows("Roll", "86-00")
         limb = "Leg"
 
