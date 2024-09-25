@@ -21,39 +21,40 @@ def load_df():
 
 def load_hl():
     hl = pd.read_csv("./hitlocations.csv")
+    number_options = hl.Number.unique()
     roll_options = hl.Roll.unique()
     location_options = hl.Location.unique()
 
-    return hl, roll_options, location_options
+    return hl, number_options, roll_options, location_options
 
-def check_rows(table,column, options):
+def check_rows(table, column, options):
     return table.loc[table[column].isin(options)]
 
 st.title("Dark Heresy Critical Damage App")
 
-hl, roll_options, location_options = load_hl()
+hl, number_options, roll_options, location_options = load_hl()
 hit = hl
 
 hit_query = st.number_input("Enter the hit roll")
 
 if hit_query :
     if hit_query < 11:
-        hit = check_rows(hit,"Roll", "01-10")
+        hit = check_rows(hit,"Number", 1)
         limb = "Head"
     elif hit_query < 21:
-        hit = check_rows(hit,"Roll", "11-20")
+        hit = check_rows(hit,"Number", 2)
         limb = "Arm"
     elif hit_query < 31:
-        hit = check_rows(hit,"Roll", "21-30")
+        hit = check_rows(hit,"Number", 3)
         limb = "Arm"
     elif hit_query < 70:
-        hit = check_rows(hit,"Roll", "31-70")
+        hit = check_rows(hit,"Number", 4)
         limb = "Body"
     elif hit_query < 85:
-        hit = check_rows(hit,"Roll", "71-85")
+        hit = check_rows(hit,"Number", 5)
         limb = "Leg"
     elif hit_query < 101:
-        hit = check_rows(hit,"Roll", "86-00")
+        hit = check_rows(hit,"Number", 6)
         limb = "Leg"
 
 st.write(hit)
