@@ -6,6 +6,7 @@ import pandas as pd
 def load_df():
     df = pd.read_csv("./criticaldamage.csv")
     type_options = df.Type.unique()
+    limb_options = df.Limb.unique()
     damage_options = df.Damage.unique()
     effect_options = df.Effect.unique()
 
@@ -16,20 +17,21 @@ def load_df():
     #min_age = df.Age.min()
     #max_age = df.Age.max()
 
-    return df, type_options, damage_options, effect_options#, embark_options, min_fare, max_fare, min_age, max_age
+    return df, type_options, limb_options, damage_options, effect_options#, embark_options, min_fare, max_fare, min_age, max_age
 
 def check_rows(column, options):
     return res.loc[res[column].isin(options)]
 
 st.title("Dark Heresy Critical Damage App")
 
-df, type_options, damage_options, effect_options = load_df()
+df, type_options, limb_options, damage_options, effect_options = load_df()
 res = df
 
 effect_query = st.text_input("String match for Effect")
 
 cols = st.columns(3)
 type = cols[0].multiselect("Type", type_options)
+limb = cols[0].multiselect("Limb", limb_options)
 damage = cols[1].multiselect("Damage", damage_options)
 #effect = cols[2].multiselect("Effect", effect_options)
 #embark = cols[3].multiselect("Embarked", embark_options)
@@ -48,15 +50,15 @@ if type:
     res = check_rows("Type", type)
 if damage:
     res = check_rows("Damage", damage)
-#if effect:
-#    res = check_rows("effect", effect)
+if limb:
+    res = check_rows("Limb", limb)
 #if embark:
 #    res = check_rows("Embarked", embark)
 #if range_cols[0].checkbox("Use Fare Range"):
 #    res = res.loc[(res.Fare > min_fare_range) & (res.Age < max_fare_range)]
 #if range_cols[2].checkbox("Use Age Range"):
 #    res = res.loc[(res.Age > min_age_range) & (res.Age < max_age_range)]
-#removal_columns = st.multiselect("Select Columns to Remove", df.columns.tolist())
-#for column in removal_columns:
-#    res = res.drop(column, axis=1)
-#st.write(res)
+removal_columns = st.multiselect("Select Columns to Remove", df.columns.tolist())
+for column in removal_columns:
+    res = res.drop(column, axis=1)
+st.write(res)
