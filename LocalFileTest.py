@@ -48,7 +48,7 @@ if hit_query :
         hit = check_rows(hit,"Number", 3)
         limb = "Arm"
     elif hit_query < 70:
-        hit = check_rows(hit,"Number", 4)
+        hit = hit.loc[hit["Number"].isin(number_options)]
         limb = "Body"
     elif hit_query < 85:
         hit = check_rows(hit,"Number", 5)
