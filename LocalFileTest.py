@@ -26,8 +26,8 @@ def load_hl():
 
     return hl, roll_options, location_options
 
-def check_rows(column, options):
-    return res.loc[res[column].isin(options)]
+def check_rows(table,column, options):
+    return table.loc[table[column].isin(options)]
 
 st.title("Dark Heresy Critical Damage App")
 
@@ -38,22 +38,22 @@ hit_query = st.number_input("Enter the hit roll")
 
 if hit_query :
     if hit_query < 11:
-        hit = check_rows("Roll", "01-10")
+        hit = check_rows(hit,"Roll", "01-10")
         limb = "Head"
     elif hit_query < 21:
-        hit = check_rows("Roll", "11-20")
+        hit = check_rows(hit,"Roll", "11-20")
         limb = "Arm"
     elif hit_query < 31:
-        hit = check_rows("Roll", "21-30")
+        hit = check_rows(hit,"Roll", "21-30")
         limb = "Arm"
     elif hit_query < 70:
-        hit = check_rows("Roll", "31-70")
+        hit = check_rows(hit,"Roll", "31-70")
         limb = "Body"
     elif hit_query < 85:
-        hit = check_rows("Roll", "71-85")
+        hit = check_rows(hit,"Roll", "71-85")
         limb = "Leg"
     elif hit_query < 101:
-        hit = check_rows("Roll", "86-00")
+        hit = check_rows(hit,"Roll", "86-00")
         limb = "Leg"
 
 st.write(hit)
@@ -81,11 +81,11 @@ if effect_query != "":
     res = res.loc[res.Effect.str.contains(effect_query)]
 
 if type:
-    res = check_rows("Type", type)
+    res = check_rows(res,"Type", type)
 if damage:
-    res = check_rows("Damage", damage)
+    res = check_rows(res,"Damage", damage)
 if limb:
-    res = check_rows("Limb", limb)
+    res = check_rows(res,"Limb", limb)
 #if embark:
 #    res = check_rows("Embarked", embark)
 #if range_cols[0].checkbox("Use Fare Range"):
