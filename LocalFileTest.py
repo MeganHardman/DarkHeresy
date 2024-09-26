@@ -34,6 +34,7 @@ st.title("Dark Heresy Critical Damage App")
 
 hl, number_options, roll_options, location_options = load_hl()
 hit = hl
+limb = ""
 
 hit_query = st.number_input("Enter the hit roll")
 
@@ -62,7 +63,6 @@ st.write(hit)
 
 df, type_options, limb_options, damage_options, effect_options = load_df()
 res = df
-limb = ""
 
 effect_query = st.text_input("String match for Effect")
 
