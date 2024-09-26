@@ -62,6 +62,7 @@ st.write(hit)
 
 df, type_options, limb_options, damage_options, effect_options = load_df()
 res = df
+limb = ""
 
 effect_query = st.text_input("String match for Effect")
 
@@ -81,7 +82,6 @@ damage = cols[1].multiselect("Damage", damage_options)
 
 if effect_query != "":
     res = res.loc[res.Effect.str.contains(effect_query)]
-
 if type:
     res = check_rows("Type", type)
 if damage:
