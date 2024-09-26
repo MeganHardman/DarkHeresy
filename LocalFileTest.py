@@ -27,8 +27,8 @@ def load_hl():
 
     return hl, number_options, roll_options, location_options
 
-def check_rows(table, column, options):
-    return table.loc[table[column].isin(options)]
+def check_rows(column, options):
+    return res.loc[res[column].isin(options)]
 
 st.title("Dark Heresy Critical Damage App")
 
@@ -83,11 +83,11 @@ if effect_query != "":
     res = res.loc[res.Effect.str.contains(effect_query)]
 
 if type:
-    res = check_rows(res,"Type", type)
+    res = check_rows("Type", type)
 if damage:
-    res = check_rows(res,"Damage", damage)
+    res = check_rows("Damage", damage)
 if limb:
-    res = check_rows(res,"Limb", limb)
+    res = check_rows("Limb", limb)
 #if embark:
 #    res = check_rows("Embarked", embark)
 #if range_cols[0].checkbox("Use Fare Range"):
