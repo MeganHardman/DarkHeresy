@@ -1,4 +1,4 @@
-import streamlit as st
+kimport streamlit as st
 import pandas as pd
 
 # Cache our data
@@ -48,7 +48,7 @@ if hit_query :
         hit = check_rows(hit,"Number", 3)
         limb = "Arm"
     elif hit_query < 70:
-        hit = hit.loc[4]
+        hit = hit.loc[hit[4].isin("Number")]
         limb = "Body"
     elif hit_query < 85:
         hit = check_rows(hit,"Number", 5)
