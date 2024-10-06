@@ -69,7 +69,7 @@ res = df
 
 effect_query = st.text_input("String match for Effect")
 
-cols = st.columns(4)
+cols = st.columns(3)
 type = cols[0].multiselect("Type", type_options)
 limb = cols[2].multiselect("Limb", limb_options)
 damage = cols[1].multiselect("Damage", damage_options)
