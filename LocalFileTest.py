@@ -30,6 +30,9 @@ def load_hl():
 def check_rows(column, options):
     return res.loc[res[column].isin(options)]
 
+def check_rows_limb(column, options):
+    return hit.loc[hit[column].isin(options)]
+
 st.title("Dark Heresy Critical Damage App")
 
 hl, number_options, roll_options, location_options = load_hl()
@@ -40,23 +43,23 @@ hit_query = st.number_input("Enter the hit roll")
 
 if hit_query :
     if hit_query < 11:
-        hit = check_rows(hit,"Number", 1)
+        hit = check_rows_limb("Number", 1)
         limb = "Head"
     elif hit_query < 21:
-        hit = check_rows(hit,"Number", 2)
+        hit = check_rows_limb("Number", 2)
         limb = "Arm"
     elif hit_query < 31:
-        hit = check_rows(hit,"Number", 3)
+        hit = check_rows_limb("Number", 3)
         limb = "Arm"
     elif hit_query < 71:
-        hit = hit.loc[hit["Body"].isin(location_options)]
+        hit = check_rows_limb("Number", 4)
         st.header("please help!")
         limb = "Body"
     elif hit_query < 85:
-        hit = check_rows(hit,"Number", 5)
+        hit = check_rows_limb("Number", 5)
         limb = "Leg"
     elif hit_query < 101:
-        hit = check_rows(hit,"Number", 6)
+        hit = check_rows_limb("Number", 6)
         limb = "Leg"
 hit = hit.drop("Number", axis=1)
 st.write(hit)
