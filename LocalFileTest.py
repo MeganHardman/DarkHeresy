@@ -68,7 +68,7 @@ effect_query = st.text_input("String match for Effect")
 
 cols = st.columns(3)
 type = cols[0].multiselect("Type", type_options)
-#limb = cols[0].multiselect("Limb", limb_options)
+limb = cols[0].multiselect("Limb", limb_options)
 damage = cols[1].multiselect("Damage", damage_options)
 #effect = cols[2].multiselect("Effect", effect_options)
 #embark = cols[3].multiselect("Embarked", embark_options)
