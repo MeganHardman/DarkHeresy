@@ -43,7 +43,7 @@ with tab1:
         st.session_state.hit = hl
     limb = ""
     
-    if 'hit' not in st.session_state:
+    if 'hit_query' not in st.session_state:
         st.session_state.hit_query = st.number_input("Enter the hit roll")
     
     if st.session_state.hit_query :
