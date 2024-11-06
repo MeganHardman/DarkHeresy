@@ -112,7 +112,7 @@ with tab2:
         st.write(mod)
     
     st.header("Attack Modifiers")
-    st.checkbox("Short Range", key=1, help="+20", on_click= SR, args=None, kwargs=None, type="secondary", icon=None, disabled=False, use_container_width=False)
+    st.checkbox("Short Range", value = False, key=1, help="+20", on_change= SR, args=None, kwargs=None, disabled=False, label_visibility="visible")
     
     
 with tab3:
