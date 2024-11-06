@@ -35,8 +35,6 @@ def check_rows_limb(column, options):
 
 tab1, tab2, tab3 = st.tabs(["Damage", "Modifiers", "Additonal Info"])
 
-st.title("Dark Heresy Critical Damage App")
-
 with tab1:
     st.header("Critical Damage")
     hl, number_options, roll_options, location_options = load_hl()
@@ -107,8 +105,16 @@ with tab1:
     st.write(res)
 
 with tab2:
+
+    mod = 0
+    def SR: 
+        mod = mod + 20
+    
     st.header("Attack Modifiers")
-    st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
+    st.write(mod)
+    st.button("Short Range", key=1, help="+20", on_click= SR, args=None, kwargs=None, *, type="secondary", icon=None, disabled=False, use_container_width=False)
+    
+    
 with tab3:
     st.header("Info")
     st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
