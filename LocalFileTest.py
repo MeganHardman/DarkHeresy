@@ -34,7 +34,6 @@ def check_rows_limb(column, options):
     return hit.loc[hit[column].isin(options)]
 
 tab1, tab2, tab3 = st.tabs(["Damage", "Modifiers", "Additonal Info"])
-mod = 0
 
 with tab1:
     st.header("Critical Damage")
@@ -106,7 +105,9 @@ with tab1:
     st.write(res)
 
 with tab2:
+    mod = 0
     def SR(): 
+        global mod
         mod += 20
     
     st.header("Attack Modifiers")
