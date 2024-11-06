@@ -3,8 +3,6 @@ import pandas as pd
 
 # Cache our data
 @st.cache()
-if mod not in st.session_state:
-    st.session_state.key = 0
     
 def load_df():
     df = pd.read_csv("./criticaldamage.csv")
@@ -108,13 +106,13 @@ with tab1:
     st.write(res)
 
 with tab2:
-    mod = 0
+    if 'mod' not in st.session_state:
+    st.session_state.key = 0
     def SR(): 
-        global mod
-        stmod += 20
-        st.write(st.session_state.mod)
+        st.session_state.mod += 20
     
     st.header("Attack Modifiers")
+    st.write(st.session_state.mod)
     st.checkbox("Short Range", value = False, key=1, help="+20", on_change= SR, args=None, kwargs=None, disabled=False, label_visibility="visible")
     
     
