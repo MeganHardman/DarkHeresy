@@ -109,7 +109,7 @@ with tab2:
     if 'mod' not in st.session_state:
         st.session_state.mod = 0
 
-    def SR:
+    def SR():
         st.session_state.mod += 20
     
     st.header("Attack Modifiers")
