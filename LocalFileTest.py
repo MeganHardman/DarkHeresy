@@ -114,19 +114,19 @@ with tab2:
         else:
             st.session_state.mod -= 10
 
-        def LR():
+    def LR():
         if st.session_state.long:
             st.session_state.mod -= 10
         else:
             st.session_state.mod += 10
 
-        def CR():
+    def CR():
         if st.session_state.cover:
             st.session_state.mod -= 20
         else:
             st.session_state.mod += 20
 
-        def ON():
+    def ON():
         if st.session_state.out:
             st.session_state.mod += 20
         else:
