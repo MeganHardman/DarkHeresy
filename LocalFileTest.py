@@ -3,6 +3,9 @@ import pandas as pd
 
 # Cache our data
 @st.cache()
+if 'key' not in st.session_state:
+    st.session_state.key = 'value'
+    
 def load_df():
     df = pd.read_csv("./criticaldamage.csv")
     type_options = df.Type.unique()
