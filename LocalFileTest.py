@@ -145,7 +145,7 @@ with tab2:
         if st.session_state.assault:
             st.session_state.mod += 50
         else:
-            st.session_state.mod -= =50
+            st.session_state.mod -= 50
     def HT():
         if st.session_state.out:
             st.session_state.mod += 60
