@@ -39,33 +39,34 @@ tab1, tab2, tab3 = st.tabs(["Damage", "Modifiers", "Additonal Info"])
 with tab1:
     st.header("Critical Damage")
     hl, number_options, roll_options, location_options = load_hl()
-    hit = hl
+    if 'hit' not in st.session_state:
+        st.session_state.hit = hl
     limb = ""
     
     hit_query = st.number_input("Enter the hit roll")
     
-    if hit_query :
-        if hit_query < 11:
-            hit = check_rows_limb("Number", 1)
+    if st.session_state.hit_query :
+        if st.session_state.hit_query < 11:
+            st.session_state.hit = check_rows_limb("Number", 1)
             limb = "Head"
-        elif hit_query < 21:
-            hit = check_rows_limb("Number", 2)
+        elif st.session_state.hit_query < 21:
+            st.session_state.hit = check_rows_limb("Number", 2)
             limb = "Arm"
-        elif hit_query < 31:
-            hit = check_rows_limb("Number", 3)
+        elif st.session_state.hit_query < 31:
+            st.session_state.hit = check_rows_limb("Number", 3)
             limb = "Arm"
-        elif hit_query < 71:
-            hit = check_rows_limb("Number", 4)
+        elif st.session_state.hit_query < 71:
+            st.session_state.hit = check_rows_limb("Number", 4)
             st.header("please help!")
             limb = "Body"
-        elif hit_query < 85:
-            hit = check_rows_limb("Number", 5)
+        elif st.session_state.hit_query < 85:
+            st.session_state.hit = check_rows_limb("Number", 5)
             limb = "Leg"
-        elif hit_query < 101:
-            hit = check_rows_limb("Number", 6)
+        elif st.session_state.hit_query < 101:
+            st.session_state.hit = check_rows_limb("Number", 6)
             limb = "Leg"
-    hit = hit.drop("Number", axis=1)
-    st.write(hit)
+    st.session_state.hit = st.session_state.hit.drop("Number", axis=1)
+    st.write(st.session_state.hit)
     
     df, type_options, limb_options, damage_options, effect_options = load_df()
     res = df
