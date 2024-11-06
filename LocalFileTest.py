@@ -107,7 +107,7 @@ with tab1:
 with tab2:
 
     mod = 0
-    def SR: 
+    def SR(): 
         mod = mod + 20
     
     st.header("Attack Modifiers")
