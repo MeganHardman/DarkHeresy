@@ -109,10 +109,11 @@ with tab2:
     def SR(): 
         global mod
         mod += 20
+        st.session_state.mod = mod
     
     st.header("Attack Modifiers")
     st.checkbox("Short Range", value = False, key=1, help="+20", on_change= SR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.write(mod)
+    st.write(session_state.mod)
     
     
 with tab3:
