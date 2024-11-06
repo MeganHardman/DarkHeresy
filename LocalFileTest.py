@@ -108,16 +108,36 @@ with tab1:
 with tab2:
     if 'mod' not in st.session_state:
         st.session_state.mod = 0
-
     def SR():
         if st.session_state.short:
+            st.session_state.mod += 10
+        else:
+            st.session_state.mod -= 10
+
+        def LR():
+        if st.session_state.long:
+            st.session_state.mod -= 10
+        else:
+            st.session_state.mod += 10
+
+        def CR():
+        if st.session_state.cover:
+            st.session_state.mod -= 20
+        else:
+            st.session_state.mod += 20
+
+        def ON():
+        if st.session_state.out:
             st.session_state.mod += 20
         else:
             st.session_state.mod -= 20
     
     st.header("Attack Modifiers")
     st.write(st.session_state.mod)
-    SR = st.checkbox("Short Range", value = False, key= 'short', help="+20", on_change = SR, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Short Range", value = False, key= 'short', help="+10", on_change = SR, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Long Range", value = False, key= 'long', help="-10", on_change = LR, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Cover", value = False, key= 'cover', help="-20", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Out numbered", value = False, key= 'out', help="+20", on_change = ON, args=None, kwargs=None, disabled=False, label_visibility="visible")
     
 with tab3:
     st.header("Info")
