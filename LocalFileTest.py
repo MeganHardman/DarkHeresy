@@ -107,7 +107,7 @@ with tab1:
 
 with tab2:
     if 'mod' not in st.session_state:
-    st.session_state.key = 0
+        st.session_state.key = 0
     def SR(): 
         st.session_state.mod += 20
     
