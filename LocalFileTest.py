@@ -3,8 +3,8 @@ import pandas as pd
 
 # Cache our data
 @st.cache()
-if 'key' not in st.session_state:
-    st.session_state.key = 'value'
+if mod not in st.session_state:
+    st.session_state.key = 0
     
 def load_df():
     df = pd.read_csv("./criticaldamage.csv")
@@ -111,7 +111,7 @@ with tab2:
     mod = 0
     def SR(): 
         global mod
-        mod += 20
+        stmod += 20
         st.write(st.session_state.mod)
     
     st.header("Attack Modifiers")
