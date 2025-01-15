@@ -59,14 +59,14 @@ with tab1:
     hit = hit.drop("Number", axis=1)
     column11, column12 = st.columns(2)
     with column11:
-        st.subheader("Hit location table")
+        st.subheader("Hit location Table")
         st.write(hit)
     with column12:
         st.subheader("Cover Table")
         st.write(
             pd.DataFrame(
                 {
-                    "Cover Type": ["Armour-glas, Thin Metal", "Flakboard,Storage Crate, Sandbags", "Statis Pod, Cogitator Bank", "Rockcrete, Hatchway, Thick iron, Stone" "Armaplas, Bulkhead, Plasteel"],
+                    "Cover Type": ["Armour-glas, Thin Metal", "Flakboard,Storage Crate, Sandbags", "Statis Pod, Cogitator Bank", "Rockcrete, Hatchway, Thick iron, Stone", "Armaplas, Bulkhead, Plasteel"],
                     "Armour Points": [4, 8, 12, 16,32],
                 }
             )
