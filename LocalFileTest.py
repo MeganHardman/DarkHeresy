@@ -118,7 +118,7 @@ with tab2:
         else:
             st.session_state.mod -= 10
     def OrdinaryProne():
-        if st.session_state.proneS:
+        if st.session_state.proneM:
             st.session_state.mod += 10
         else:
             st.session_state.mod -= 10
@@ -135,7 +135,7 @@ with tab2:
         else:
             st.session_state.mod += 10
     def DifficultProne():
-        if st.session_state.proneM:
+        if st.session_state.proneS:
             st.session_state.mod -= 10
         else:
             st.session_state.mod += 10
