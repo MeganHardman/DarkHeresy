@@ -29,12 +29,12 @@ def check_rows_limb(column, options):
 tab1, tab2, tab3 = st.tabs(["Damage", "Modifiers", "Additonal Info"])
 
 with tab1:
-    st.header("Critical Damage")
+    
     hl, number_options, roll_options, location_options = load_hl()
     hit = hl
     limb = ""
     
-    hit_query = st.number_input("Enter the hit roll")
+    #hit_query = st.number_input("Enter the hit roll")
     
     if hit_query :
         if hit_query < 11:
@@ -57,11 +57,26 @@ with tab1:
             hit = check_rows_limb("Number", 6)
             limb = "Leg"
     hit = hit.drop("Number", axis=1)
-    st.write(hit)
+    column11, column12 = st.columns(2)
+    with column11:
+        st.subheader("Hit location table")
+        st.write(hit)
+    with column12:
+        st.subheader("Cover Table")
+        st.write(
+            pd.DataFrame(
+                {
+                    "Cover Type": ["Armour-glas, Thin Metal", "Flakboard,Storage Crate, Sandbags", "Statis Pod, Cogitator Bank", "Rockcrete, Hatchway, Thick iron, Stone" "Armaplas, Bulkhead, Plasteel"],
+                    "Armour Points": [4, 8, 12, 16,32],
+                }
+            )
+        )
+        
     
     df, type_options, limb_options, damage_options, effect_options = load_df()
     res = df
-    
+
+    st.header("Critical Damage")
     effect_query = st.text_input("String match for Effect")
     
     cols = st.columns(3)
