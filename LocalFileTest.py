@@ -282,7 +282,7 @@ with tab2:
     st.header("Attack Modifiers")
     st.write(st.session_state.mod)
 
-    c11,c12,c13 = st.columns(3)
+    c11,c12,c13 = st.columns(3, vertical_alignment="bottom")
 
     with c11:
         st.subheader("Easy +30")
