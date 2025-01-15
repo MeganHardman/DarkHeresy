@@ -68,7 +68,7 @@ with tab1:
                 {
                     "Cover Type": ["Armour-glas, Thin Metal", "Flakboard,Storage Crate, Sandbags", "Statis Pod, Cogitator Bank", "Rockcrete, Hatchway, Thick iron, Stone", "Armaplas, Bulkhead, Plasteel"],
                     "Armour Points": [4, 8, 12, 16,32],
-                }, hide_index = True
+                }, index = False
             )
         )
         
