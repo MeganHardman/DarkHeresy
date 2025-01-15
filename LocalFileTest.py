@@ -83,17 +83,23 @@ with tab2:
     if 'mod' not in st.session_state:
         st.session_state.mod = 0
 
-    def Inc(inc_value=0):
-        st.session_state.mod += inc_value
+    def Inc(inc_value=0, TF):
+        if TF :
+            st.session_state.mod += inc_value
+        else :
+            st.session_state.mod -= inc_value
     
-    def Dec(dec_value=0):
-        st.session_state.mod -= dec_value
+    def Dec(dec_value=0, TF):
+        if !TF :
+            st.session_state.mod -= dec_value
+        else:
+            st.session_state.mod += dec_value
     
     
     st.header("Attack Modifiers")
     st.write(st.session_state.mod)
-    st.checkbox("Short Range", value = False, key= 'short', help="+10", on_change = Inc, args=None, kwargs=dict(inc_value=10), disabled=False, label_visibility="visible")
-    st.checkbox("Long Range", value = False, key= 'long', help="-10", on_change = Dec, args=None, kwargs=dict(dec_value=10), disabled=False, label_visibility="visible")
+    st.checkbox("Short Range", value = False, key= 'short', help="+10", on_change = Inc, args=None, kwargs=dict(inc_value=10, value), disabled=False, label_visibility="visible")
+    st.checkbox("Long Range", value = False, key= 'long', help="-10", on_change = Dec, args=None, kwargs=dict(dec_value=10, value), disabled=False, label_visibility="visible")
     st.checkbox("Cover", value = False, key= 'cover', help="-20", on_change = Dec, args=None, kwargs=dict(dec_value=20), disabled=False, label_visibility="visible")
     st.checkbox("Out numbered", value = False, key= 'out', help="+20", on_change = Inc, args=None, kwargs=dict(inc_value=10), disabled=False, label_visibility="visible")
     st.write("Hoard Size")
