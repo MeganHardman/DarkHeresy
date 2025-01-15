@@ -63,12 +63,12 @@ with tab1:
         st.write(hit)
     with column12:
         st.subheader("Cover Table")
-        st.write(
+        st.dataframe(
             pd.DataFrame(
                 {
                     "Cover Type": ["Armour-glas, Thin Metal", "Flakboard,Storage Crate, Sandbags", "Statis Pod, Cogitator Bank", "Rockcrete, Hatchway, Thick iron, Stone", "Armaplas, Bulkhead, Plasteel"],
                     "Armour Points": [4, 8, 12, 16,32],
-                }, index = False
+                }, hide_index=True
             )
         )
         
