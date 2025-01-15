@@ -90,7 +90,7 @@ with tab2:
             st.session_state.mod -= inc_value
     
     def Dec(dec_value=0, TF=False):
-        if !TF :
+        if  not TF :
             st.session_state.mod -= dec_value
         else:
             st.session_state.mod += dec_value
