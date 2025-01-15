@@ -82,29 +82,182 @@ with tab1:
 with tab2:
     if 'mod' not in st.session_state:
         st.session_state.mod = 0
-    def SR():
+    #easy
+    def EasyUnaware():
+        if st.session_state.unaware:
+            st.session_state.mod += 30
+        else:
+            st.session_state.mod -= 30
+    def EasyPoint():
+        if st.session_state.short:
+            st.session_state.mod += 30
+        else:
+            st.session_state.mod -= 30
+            
+    #routine
+    def RoutineOut():
+        if st.session_state.outnumbered3:
+            st.session_state.mod += 20
+        else:
+            st.session_state.mod -= 20
+    def RoutineStunned():
+        if st.session_state.stunned:
+            st.session_state.mod += 20
+        else:
+            st.session_state.mod -= 20
+
+    #Ordinary
+    def OrdinaryShort():
         if st.session_state.short:
             st.session_state.mod += 10
         else:
             st.session_state.mod -= 10
+    def OrdinaryOut():
+        if st.session_state.outnumbered2:
+            st.session_state.mod += 10
+        else:
+            st.session_state.mod -= 10
+    def OrdinaryProne():
+        if st.session_state.proneS:
+            st.session_state.mod += 10
+        else:
+            st.session_state.mod -= 10
+    def OrdinaryHigher():
+        if st.session_state.higher:
+            st.session_state.mod += 10
+        else:
+            st.session_state.mod -= 10
 
-    def LR():
+    #Difficult
+    def DifficultLong():
         if st.session_state.long:
             st.session_state.mod -= 10
         else:
             st.session_state.mod += 10
+    def DifficultProne():
+        if st.session_state.proneM:
+            st.session_state.mod -= 10
+        else:
+            st.session_state.mod += 10
+    def DifficultTerrain():
+        if st.session_state.terrain:
+            st.session_state.mod -= 10
+        else:
+            st.session_state.mod += 10
+    def DifficultFatigued():
+        if st.session_state.fatigued:
+            st.session_state.mod -= 10
+        else:
+            st.session_state.mod += 10
 
-    def CR():
-        if st.session_state.cover:
+    #Hard
+    def HardMelee():
+        if st.session_state.melee:
+            st.session_state.mod -= 20
+        else:
+            st.session_state.mod += 20
+    def HardProne():
+        if st.session_state.proneSelf:
+            st.session_state.mod -= 20
+        else:
+            st.session_state.mod += 20
+    def HardObscure():
+        if st.session_state.obscure:
+            st.session_state.mod -= 20
+        else:
+            st.session_state.mod += 20
+    def HardDark():
+        if st.session_state.darkM:
+            st.session_state.mod -= 20
+        else:
+            st.session_state.mod += 20
+    def HardUnarmed():
+        if st.session_state.unarmed:
+            st.session_state.mod -= 20
+        else:
+            st.session_state.mod += 20
+    def HardTalent():
+        if st.session_state.talent:
             st.session_state.mod -= 20
         else:
             st.session_state.mod += 20
 
-    def ON():
-        if st.session_state.out:
+    #Very
+    def VeryExtreme():
+        if st.session_state.extreme:
+            st.session_state.mod -= 30
+        else:
+            st.session_state.mod += 30
+    def VeryConcealed():
+        if st.session_state.concealed:
+            st.session_state.mod -= 30
+        else:
+            st.session_state.mod += 30
+    def VeryDark():
+        if st.session_state.darkS:
+            st.session_state.mod -= 30
+        else:
+            st.session_state.mod += 30
+    def VeryBrace():
+        if st.session_state.brace:
+            st.session_state.mod -= 30
+        else:
+            st.session_state.mod += 30
+    def VeryTerrain():
+        if st.session_state.snow:
+            st.session_state.mod -= 30
+        else:
+            st.session_state.mod += 30
+    
+    #Enemy size
+    def Emin():
+        if st.session_state.mini:
+            st.session_state.mod -= 30
+        else:
+            st.session_state.mod += 30
+    def Epuny():
+        if st.session_state.puny:
+            st.session_state.mod -= 20
+        else:
+            st.session_state.mod += 20
+    def Escrawn():
+        if st.session_state.scrawny:
+            st.session_state.mod -= 10
+        else:
+            st.session_state.mod += 10
+    def Ehulk():
+        if st.session_state.hulk:
+            st.session_state.mod += 10
+        else:
+            st.session_state.mod -= 10
+    def Een():
+        if st.session_state.enormous:
             st.session_state.mod += 20
         else:
             st.session_state.mod -= 20
+    def Emas():
+        if st.session_state.massive:
+            st.session_state.mod += 30
+        else:
+            st.session_state.mod -= 30
+    def Eimm():
+        if st.session_state.immense:
+            st.session_state.mod += 40
+        else:
+            st.session_state.mod -= 40
+    def Emon():
+        if st.session_state.monumental:
+            st.session_state.mod += 50
+        else:
+            st.session_state.mod -= 50
+    def Etitan():
+        if st.session_state.titanic:
+            st.session_state.mod += 60
+        else:
+            st.session_state.mod -= 60
+
+    
+    #horde size
     def HM():
         if st.session_state.mob:
             st.session_state.mod += 30
@@ -129,46 +282,46 @@ with tab2:
     st.header("Attack Modifiers")
     st.write(st.session_state.mod)
 
-    st.checkbox("Shooting at Surprised or Unaware foe", value = False, key= 'unaware', help="easy +30", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Shooting at Point Blank Range", value = False, key= 'point', help="easy +30", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting at Surprised or Unaware foe", value = False, key= 'unaware', help="easy +30", on_change = EasyUnaware, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting at Point Blank Range", value = False, key= 'point', help="easy +30", on_change = EasyPoint, args=None, kwargs=None, disabled=False, label_visibility="visible")
 
-    st.checkbox("Melee against Outnumbered foes 3:1", value = False, key= 'outnumbered3', help="routine +20", on_change = ON, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Shooting at Stunned foe", value = False, key= 'stunned', help="routine +20", on_change = ON, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Melee against Outnumbered foes 3:1", value = False, key= 'outnumbered3', help="routine +20", on_change = RoutineOut, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting at Stunned foe", value = False, key= 'stunned', help="routine +20", on_change = RoutineStunned, args=None, kwargs=None, disabled=False, label_visibility="visible")
     
-    st.checkbox("Shooting at Short Range", value = False, key= 'short', help="ordinary +10", on_change = SR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Melee against Outnumbered foes 2:1", value = False, key= 'outnumbered2', help="ordinary +10", on_change = ON, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Melee against Prone foe", value = False, key= 'proneM', help="ordinary +10", on_change = ON, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Melee from Higher Ground", value = False, key= 'higher', help="ordinary +10", on_change = ON, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting at Short Range", value = False, key= 'short', help="ordinary +10", on_change = OrdinaryShort, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Melee against Outnumbered foes 2:1", value = False, key= 'outnumbered2', help="ordinary +10", on_change = OrdinaryOut, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Melee against Prone foe", value = False, key= 'proneM', help="ordinary +10", on_change = OrdinaryProne, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Melee from Higher Ground", value = False, key= 'higher', help="ordinary +10", on_change = OrdinaryHigher, args=None, kwargs=None, disabled=False, label_visibility="visible")
     
-    st.checkbox("Shooting at Long Range", value = False, key= 'long', help=" -10", on_change = LR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Shooting at Prone foe", value = False, key= 'proneS', help=" -10", on_change = LR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Melee in difficult terrain (mud, rain)", value = False, key= 'terrain', help="-10", on_change = ON, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Fatigued", value = False, key= 'fatigued', help=" -10", on_change = LR, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting at Long Range", value = False, key= 'long', help=" -10", on_change = DifficultLong, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting at Prone foe", value = False, key= 'proneS', help=" -10", on_change = DifficultProne, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Melee in difficult terrain (mud, rain)", value = False, key= 'terrain', help="-10", on_change = DifficultTerrain, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Fatigued", value = False, key= 'fatigued', help=" -10", on_change = DifficultFatigued, args=None, kwargs=None, disabled=False, label_visibility="visible")
     
-    st.checkbox("Shooting into Melee combat", value = False, key= 'melee', help="-20", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Shooting while Prone", value = False, key= 'proneSelf', help="-20", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Shooting in Obscuring Conditions (fog, rain)", value = False, key= 'obscure', help="-20", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Melee in Darkness", value = False, key= 'darkM', help="-20", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Melee Unarmed vs Armed foe", value = False, key= 'unarmed', help="-20", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Using a weapon without the right Talent", value = False, key= 'talent', help="-20", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting into Melee combat", value = False, key= 'melee', help="-20", on_change = HardMelee, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting while Prone", value = False, key= 'proneSelf', help="-20", on_change = HardProne, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting in Obscuring Conditions (fog, rain)", value = False, key= 'obscure', help="-20", on_change = HardObscure, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Melee in Darkness", value = False, key= 'darkM', help="-20", on_change = HardDark, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Melee Unarmed vs Armed foe", value = False, key= 'unarmed', help="-20", on_change = HardUnarmed, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Using a weapon without the right Talent", value = False, key= 'talent', help="-20", on_change = HardTalent, args=None, kwargs=None, disabled=False, label_visibility="visible")
 
-    st.checkbox("Shooting at Extreme Range", value = False, key= 'extreme', help="-30", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Shooting at a Completely Concealed foe", value = False, key= 'concealed', help="-30", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Shooting in Darkness", value = False, key= 'extremeS', help="-30", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Shooting a Heavy Weapon without Bracing", value = False, key= 'brace', help="-30", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Melee in very difficult terrain (deep snow)", value = False, key= 'snow', help="-30", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting at Extreme Range", value = False, key= 'extreme', help="-30", on_change = VeryExtreme, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting at a Completely Concealed foe", value = False, key= 'concealed', help="-30", on_change = VeryConcealed, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting in Darkness", value = False, key= 'darkS', help="-30", on_change = VeryDark, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Shooting a Heavy Weapon without Bracing", value = False, key= 'brace', help="-30", on_change = VeryBrace, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Melee in very difficult terrain (deep snow)", value = False, key= 'snow', help="-30", on_change = VeryTerrain, args=None, kwargs=None, disabled=False, label_visibility="visible")
 
     st.write("Enemy Size")
-    st.checkbox("Miniscule (autoquill, knife)", value = False, key= 'mini', help="-30", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Puny (bolt pistol,servo-skull)", value = False, key= 'puny', help="-20", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Scrawny (Gretchin, Child)", value = False, key= 'scrawny', help="-10", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Average (Human)", value = False, key= 'average', help="0", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Hulking (Ork Nob, Armoured Space Marine)", value = False, key= 'hulk', help="+10", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Enormous (Sentinel Walker,Krootox)", value = False, key= 'enormous', help="+20", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Massive (Battle Tank, Greater Daemon)", value = False, key= 'massive', help="+30", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Immense (land Raider, Great Knarloc)", value = False, key= 'immense', help="+50", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Monumental (Squiggoth, Baneblade)", value = False, key= 'massive', help="+40", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Titanic (Reaver Battle Titan)", value = False, key= 'titanic', help="+60", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Miniscule (autoquill, knife)", value = False, key= 'mini', help="-30", on_change = Emin, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Puny (bolt pistol,servo-skull)", value = False, key= 'puny', help="-20", on_change = Epuny, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Scrawny (Gretchin, Child)", value = False, key= 'scrawny', help="-10", on_change = Escrawn, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    #st.checkbox("Average (Human)", value = False, key= 'average', help="0", on_change = , args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Hulking (Ork Nob, Armoured Space Marine)", value = False, key= 'hulk', help="+10", on_change = Ehulk, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Enormous (Sentinel Walker,Krootox)", value = False, key= 'enormous', help="+20", on_change = Een, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Massive (Battle Tank, Greater Daemon)", value = False, key= 'massive', help="+30", on_change = Emas, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Immense (land Raider, Great Knarloc)", value = False, key= 'immense', help="+50", on_change = Eimm, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Monumental (Squiggoth, Baneblade)", value = False, key= 'massive', help="+40", on_change = Emon, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Titanic (Reaver Battle Titan)", value = False, key= 'titanic', help="+60", on_change = Etitan, args=None, kwargs=None, disabled=False, label_visibility="visible")
     
     st.write("Hoard Size")
     st.checkbox("30 Mob (Massive)", value = False, key= 'mob', help="+30", on_change = HM, args=None, kwargs=None, disabled=False, label_visibility="visible")
