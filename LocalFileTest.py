@@ -89,7 +89,7 @@ with tab2:
         else:
             st.session_state.mod -= 30
     def EasyPoint():
-        if st.session_state.short:
+        if st.session_state.point:
             st.session_state.mod += 30
         else:
             st.session_state.mod -= 30
