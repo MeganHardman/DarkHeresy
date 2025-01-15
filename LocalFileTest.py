@@ -288,23 +288,16 @@ with tab2:
         st.subheader("Easy +30")
         st.checkbox("Shooting at Surprised or Unaware foe", value = False, key= 'unaware', help="easy +30", on_change = EasyUnaware, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("Shooting at Point Blank Range", value = False, key= 'point', help="easy +30", on_change = EasyPoint, args=None, kwargs=None, disabled=False, label_visibility="visible")
-        st.subheader("Routine +20")
-        st.checkbox("Melee against Outnumbered foes 3:1", value = False, key= 'outnumbered3', help="routine +20", on_change = RoutineOut, args=None, kwargs=None, disabled=False, label_visibility="visible")
-        st.checkbox("Shooting at Stunned foe", value = False, key= 'stunned', help="routine +20", on_change = RoutineStunned, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    
-    with c12:
-        st.subheader("Ordinary +10")
-        st.checkbox("Shooting at Short Range", value = False, key= 'short', help="ordinary +10", on_change = OrdinaryShort, args=None, kwargs=None, disabled=False, label_visibility="visible")
-        st.checkbox("Melee against Outnumbered foes 2:1", value = False, key= 'outnumbered2', help="ordinary +10", on_change = OrdinaryOut, args=None, kwargs=None, disabled=False, label_visibility="visible")
-        st.checkbox("Melee against Prone foe", value = False, key= 'proneM', help="ordinary +10", on_change = OrdinaryProne, args=None, kwargs=None, disabled=False, label_visibility="visible")
-        st.checkbox("Melee from Higher Ground", value = False, key= 'higher', help="ordinary +10", on_change = OrdinaryHigher, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.subheader("Difficult -10")
         st.checkbox("Shooting at Long Range", value = False, key= 'long', help=" -10", on_change = DifficultLong, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("Shooting at Prone foe", value = False, key= 'proneS', help=" -10", on_change = DifficultProne, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("Melee in difficult terrain (mud, rain)", value = False, key= 'terrain', help="-10", on_change = DifficultTerrain, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("Fatigued", value = False, key= 'fatigued', help=" -10", on_change = DifficultFatigued, args=None, kwargs=None, disabled=False, label_visibility="visible")
     
-    with c13:
+    with c12:
+        st.subheader("Routine +20")
+        st.checkbox("Melee against Outnumbered foes 3:1", value = False, key= 'outnumbered3', help="routine +20", on_change = RoutineOut, args=None, kwargs=None, disabled=False, label_visibility="visible")
+        st.checkbox("Shooting at Stunned foe", value = False, key= 'stunned', help="routine +20", on_change = RoutineStunned, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.subheader("Hard -20")
         st.checkbox("Shooting into Melee combat", value = False, key= 'melee', help="-20", on_change = HardMelee, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("Shooting while Prone", value = False, key= 'proneSelf', help="-20", on_change = HardProne, args=None, kwargs=None, disabled=False, label_visibility="visible")
@@ -312,6 +305,13 @@ with tab2:
         st.checkbox("Melee in Darkness", value = False, key= 'darkM', help="-20", on_change = HardDark, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("Melee Unarmed vs Armed foe", value = False, key= 'unarmed', help="-20", on_change = HardUnarmed, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("Using a weapon without the right Talent", value = False, key= 'talent', help="-20", on_change = HardTalent, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    
+    with c13:
+        st.subheader("Ordinary +10")
+        st.checkbox("Shooting at Short Range", value = False, key= 'short', help="ordinary +10", on_change = OrdinaryShort, args=None, kwargs=None, disabled=False, label_visibility="visible")
+        st.checkbox("Melee against Outnumbered foes 2:1", value = False, key= 'outnumbered2', help="ordinary +10", on_change = OrdinaryOut, args=None, kwargs=None, disabled=False, label_visibility="visible")
+        st.checkbox("Melee against Prone foe", value = False, key= 'proneM', help="ordinary +10", on_change = OrdinaryProne, args=None, kwargs=None, disabled=False, label_visibility="visible")
+        st.checkbox("Melee from Higher Ground", value = False, key= 'higher', help="ordinary +10", on_change = OrdinaryHigher, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.subheader("Very Hard -30")
         st.checkbox("Shooting at Extreme Range", value = False, key= 'extreme', help="-30", on_change = VeryExtreme, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("Shooting at a Completely Concealed foe", value = False, key= 'concealed', help="-30", on_change = VeryConcealed, args=None, kwargs=None, disabled=False, label_visibility="visible")
@@ -322,7 +322,7 @@ with tab2:
     c21, c22 = st.columns(2)
 
     with c21:
-        st.write("Enemy Size")
+        st.subheader("Enemy Size")
         st.checkbox("Miniscule (autoquill, knife)", value = False, key= 'mini', help="-30", on_change = Emin, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("Puny (bolt pistol,servo-skull)", value = False, key= 'puny', help="-20", on_change = Epuny, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("Scrawny (Gretchin, Child)", value = False, key= 'scrawny', help="-10", on_change = Escrawn, args=None, kwargs=None, disabled=False, label_visibility="visible")
@@ -335,7 +335,7 @@ with tab2:
         st.checkbox("Titanic (Reaver Battle Titan)", value = False, key= 'titanic', help="+60", on_change = Etitan, args=None, kwargs=None, disabled=False, label_visibility="visible")
 
     with c22:
-        st.write("Hoard Size")
+        st.subheader("Hoard Size")
         st.checkbox("30 Mob (Massive)", value = False, key= 'mob', help="+30", on_change = HM, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("60 Throng (Immense)", value = False, key= 'throng', help="+40", on_change = HI, args=None, kwargs=None, disabled=False, label_visibility="visible")
         st.checkbox("90 Assault (Monumental)", value = False, key= 'assault', help="+50", on_change = HA, args=None, kwargs=None, disabled=False, label_visibility="visible")
