@@ -140,7 +140,7 @@ with tab2:
         if st.session_state.throng:
             st.session_state.mod += 40
         else:
-            st.session_state.mod -= 50
+            st.session_state.mod -= 40
     def HA():
         if st.session_state.assault:
             st.session_state.mod += 50
