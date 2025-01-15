@@ -34,7 +34,7 @@ with tab1:
     hit = hl
     limb = ""
     
-    #hit_query = st.number_input("Enter the hit roll")
+    '''hit_query = st.number_input("Enter the hit roll")
     
     if hit_query :
         if hit_query < 11:
@@ -55,7 +55,7 @@ with tab1:
             limb = "Leg"
         elif hit_query < 101:
             hit = check_rows_limb("Number", 6)
-            limb = "Leg"
+            limb = "Leg"'''
     hit = hit.drop("Number", axis=1)
     column11, column12 = st.columns(2)
     with column11:
