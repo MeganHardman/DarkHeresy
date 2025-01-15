@@ -1,4 +1,4 @@
-import streamlit as st
+limport streamlit as st
 import pandas as pd
 
     
@@ -320,7 +320,7 @@ with tab2:
     st.checkbox("Enormous (Sentinel Walker,Krootox)", value = False, key= 'enormous', help="+20", on_change = Een, args=None, kwargs=None, disabled=False, label_visibility="visible")
     st.checkbox("Massive (Battle Tank, Greater Daemon)", value = False, key= 'massive', help="+30", on_change = Emas, args=None, kwargs=None, disabled=False, label_visibility="visible")
     st.checkbox("Immense (land Raider, Great Knarloc)", value = False, key= 'immense', help="+50", on_change = Eimm, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Monumental (Squiggoth, Baneblade)", value = False, key= 'massive', help="+40", on_change = Emon, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Monumental (Squiggoth, Baneblade)", value = False, key= 'monumental', help="+40", on_change = Emon, args=None, kwargs=None, disabled=False, label_visibility="visible")
     st.checkbox("Titanic (Reaver Battle Titan)", value = False, key= 'titanic', help="+60", on_change = Etitan, args=None, kwargs=None, disabled=False, label_visibility="visible")
     
     st.write("Hoard Size")
