@@ -87,7 +87,7 @@ with tab2:
         st.session_state.mod += inc_value
     
     def Dec(dec_value=0):
-        st.session_state.mod += dec_value
+        st.session_state.mod -= dec_value
     
     
     st.header("Attack Modifiers")
