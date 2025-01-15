@@ -147,7 +147,7 @@ with tab2:
         else:
             st.session_state.mod -= 50
     def HT():
-        if st.session_state.out:
+        if st.session_state.tide:
             st.session_state.mod += 60
         else:
             st.session_state.mod -= 60
@@ -160,7 +160,7 @@ with tab2:
     st.checkbox("Out numbered", value = False, key= 'out', help="+20", on_change = ON, args=None, kwargs=None, disabled=False, label_visibility="visible")
     st.write("Hoard Size")
     st.checkbox("30 Mob (Massive)", value = False, key= 'mob', help="+30", on_change = HM, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("60 Throng (Immense)", value = False, key= 'throng', help="-40", on_change = HI, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("60 Throng (Immense)", value = False, key= 'throng', help="+40", on_change = HI, args=None, kwargs=None, disabled=False, label_visibility="visible")
     st.checkbox("90 Assault (Monumental)", value = False, key= 'assault', help="+50", on_change = HA, args=None, kwargs=None, disabled=False, label_visibility="visible")
     st.checkbox("120+ Tide (Titanic)", value = False, key= 'tide', help="+60", on_change = HT, args=None, kwargs=None, disabled=False, label_visibility="visible")
 
