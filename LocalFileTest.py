@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-
     
 def load_df():
     df = pd.read_csv("./criticaldamage.csv")
@@ -83,61 +82,25 @@ with tab1:
 with tab2:
     if 'mod' not in st.session_state:
         st.session_state.mod = 0
-    def SR():
-        if st.session_state.short:
-            st.session_state.mod += 10
-        else:
-            st.session_state.mod -= 10
 
-    def LR():
-        if st.session_state.long:
-            st.session_state.mod -= 10
-        else:
-            st.session_state.mod += 10
-
-    def CR():
-        if st.session_state.cover:
-            st.session_state.mod -= 20
-        else:
-            st.session_state.mod += 20
-
-    def ON():
-        if st.session_state.out:
-            st.session_state.mod += 20
-        else:
-            st.session_state.mod -= 20
-    def HM():
-        if st.session_state.mob:
-            st.session_state.mod += 30
-        else:
-            st.session_state.mod -= 30
-    def HI():
-        if st.session_state.throng:
-            st.session_state.mod += 40
-        else:
-            st.session_state.mod -= 50
-    def HA():
-        if st.session_state.assault:
-            st.session_state.mod += 50
-        else:
-            st.session_state.mod -= 50
-    def HT():
-        if st.session_state.out:
-            st.session_state.mod += 60
-        else:
-            st.session_state.mod -= 60
+    def Inc(inc_value=0):
+        st.session_state.mod += inc_value
+    
+    def Dec(dec_value=0):
+        st.session_state.mod += dec_value
+    
     
     st.header("Attack Modifiers")
     st.write(st.session_state.mod)
-    st.checkbox("Short Range", value = False, key= 'short', help="+10", on_change = SR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Long Range", value = False, key= 'long', help="-10", on_change = LR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Cover", value = False, key= 'cover', help="-20", on_change = CR, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("Out numbered", value = False, key= 'out', help="+20", on_change = ON, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("Short Range", value = False, key= 'short', help="+10", on_change = Inc, args=None, kwargs=dict(inc_value=10), disabled=False, label_visibility="visible")
+    st.checkbox("Long Range", value = False, key= 'long', help="-10", on_change = Dec, args=None, kwargs=dict(dec_value=10), disabled=False, label_visibility="visible")
+    st.checkbox("Cover", value = False, key= 'cover', help="-20", on_change = Dec, args=None, kwargs=dict(dec_value=20), disabled=False, label_visibility="visible")
+    st.checkbox("Out numbered", value = False, key= 'out', help="+20", on_change = Inc, args=None, kwargs=dict(inc_value=10), disabled=False, label_visibility="visible")
     st.write("Hoard Size")
-    st.checkbox("30 Mob (Massive)", value = False, key= 'mob', help="+30", on_change = HM, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("60 Throng (Immense)", value = False, key= 'throng', help="-40", on_change = HI, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("90 Assault (Monumental)", value = False, key= 'assault', help="+50", on_change = HA, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    st.checkbox("120+ Tide (Titanic)", value = False, key= 'tide', help="+60", on_change = HT, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    st.checkbox("30 Mob (Massive)", value = False, key= 'mob', help="+30", on_change = Inc, args=None, kwargs=dict(inc_value=30), disabled=False, label_visibility="visible")
+    st.checkbox("60 Throng (Immense)", value = False, key= 'throng', help="+40", on_change = Inc, args=None, kwargs=dict(inc_value=40), disabled=False, label_visibility="visible")
+    st.checkbox("90 Assault (Monumental)", value = False, key= 'assault', help="+50", on_change = Inc, args=None, kwargs=dict(inc_value=50), disabled=False, label_visibility="visible")
+    st.checkbox("120+ Tide (Titanic)", value = False, key= 'tide', help="+60", on_change = Inc, args=None, kwargs=dict(inc_value=60), disabled=False, label_visibility="visible")
 
 with tab3:
     st.header("Info")
