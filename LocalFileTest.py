@@ -34,7 +34,7 @@ with tab1:
     hit = hl
     limb = ""
     
-    '''hit_query = st.number_input("Enter the hit roll")
+    my_comment = '''hit_query = st.number_input("Enter the hit roll")
     
     if hit_query :
         if hit_query < 11:
