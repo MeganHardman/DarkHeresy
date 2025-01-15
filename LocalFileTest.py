@@ -83,13 +83,13 @@ with tab2:
     if 'mod' not in st.session_state:
         st.session_state.mod = 0
 
-    def Inc(inc_value=0, TF):
+    def Inc(inc_value=0, TF=True):
         if TF :
             st.session_state.mod += inc_value
         else :
             st.session_state.mod -= inc_value
     
-    def Dec(dec_value=0, TF):
+    def Dec(dec_value=0, TF=False):
         if !TF :
             st.session_state.mod -= dec_value
         else:
